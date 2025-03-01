@@ -1,4 +1,5 @@
 "use client";
+import DiveSitesMap from "./components/DiveSitesMap";
 import { useDiveSites } from "./context/DiveSitesContext"
 
 export default function Home() {
@@ -6,11 +7,7 @@ export default function Home() {
 
   return (
     <div>
-      {diveSites.map((site) => (
-        <div key={site.id}>
-          {site.name}
-        </div>
-      ))}
+      <DiveSitesMap />
     </div>
   );
 }

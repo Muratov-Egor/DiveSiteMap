@@ -1,4 +1,3 @@
-// src/app/components/markerIcons.js
 import L from "leaflet";
 
 export const markerIcons = {

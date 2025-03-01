@@ -1,13 +1,13 @@
 "use client";
 import DiveSitesMap from "./components/DiveSitesMap";
-import { useDiveSites } from "./context/DiveSitesContext"
+import SideBar from "./components/SideBar";
 
 export default function Home() {
-  const { diveSites } = useDiveSites();
 
   return (
-    <div>
+    <div className="flex flex-row" >
       <DiveSitesMap />
+      <SideBar />
     </div>
   );
 }

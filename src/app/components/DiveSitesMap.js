@@ -1,9 +1,10 @@
 "use client";
 
 import { useDiveSites } from "../context/DiveSitesContext";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { markerIcons } from "./MarkerIcons";
+import DiveSitePopup from "./DiveSitePopup";
 
 const DiveSitesMap = ({ onSelectSite }) => {
   const { diveSites } = useDiveSites();
@@ -23,15 +24,8 @@ const DiveSitesMap = ({ onSelectSite }) => {
             key={site.id} 
             position={[site.lat, site.lng]}
             icon={site.visited ? markerIcons.visited : markerIcons.default}
-            eventHandlers={{
-              click: () => onSelectSite(site.id),
-            }}
           >
-            <Popup>
-              <strong>{site.name}</strong>
-              <br />
-              {site.description || "Нет описания"}
-            </Popup>
+            <DiveSitePopup site={site} onSelectSite={onSelectSite} />
           </Marker>
         ))}
       </MapContainer>

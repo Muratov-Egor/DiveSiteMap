@@ -3,11 +3,11 @@
 import { useDiveSites } from "../context/DiveSitesContext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { markerIcons } from "./MarkerIcons"; // Убедитесь, что путь к файлу правильный
+import { markerIcons } from "./MarkerIcons";
 
-const DiveSitesMap = () => {
+const DiveSitesMap = ({ onSelectSite }) => {
   const { diveSites } = useDiveSites();
-
+  
   return (
     <div className="w-[75%] h-screen fixed left-0 top-0">
       <MapContainer 
@@ -22,7 +22,10 @@ const DiveSitesMap = () => {
           <Marker 
             key={site.id} 
             position={[site.lat, site.lng]}
-            icon={site.visited ? markerIcons.visited : markerIcons.default} // Условие для выбора иконки
+            icon={site.visited ? markerIcons.visited : markerIcons.default}
+            eventHandlers={{
+              click: () => onSelectSite(site.id),
+            }}
           >
             <Popup>
               <strong>{site.name}</strong>

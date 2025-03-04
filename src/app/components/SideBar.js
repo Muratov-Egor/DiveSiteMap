@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DiveSiteInfo from "./DiveSiteInfo";
-import DiveSiteForm from "./DiveSiteForm";
+import AddDiveSiteForm from "./AddDiveSiteForm";
 
 const SideBar = ({ selectedSiteId, onCloseSite }) => {
   return (
@@ -10,7 +10,7 @@ const SideBar = ({ selectedSiteId, onCloseSite }) => {
       {selectedSiteId ? (
         <DiveSiteInfo siteId={selectedSiteId} onClose={onCloseSite} />
       ) : (
-        <DiveSiteForm />
+        <AddDiveSiteForm />
       )}
     </div>
   );

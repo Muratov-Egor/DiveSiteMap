@@ -8,7 +8,7 @@ import SearchableDropDown from "../ui/SearchableDropDown";
 import TextArea from "../ui/TextArea";
 import Button from "../ui/Button";
 
-const DiveSiteForm = () => {
+const AddDiveSiteForm = () => {
   const { addDiveSite } = useDiveSites();
   const { countries } = useCountries('rus');
   
@@ -54,7 +54,7 @@ const DiveSiteForm = () => {
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4">Добавление дайв-сайта</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-black">Добавление дайв-сайта</h2>
       <div className="flex w-full">
         <Input
             value={form.name}
@@ -97,4 +97,4 @@ const DiveSiteForm = () => {
   );
 };
 
-export default DiveSiteForm;
+export default AddDiveSiteForm;
